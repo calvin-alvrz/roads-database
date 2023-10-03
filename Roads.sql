@@ -313,7 +313,7 @@ VALUES (2, 'Chloe', 'Kua', '23-02-2022', '11-02-2003', 'F', '29 Clay Works Ln',
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (3, 'Kris', 'AAAAA', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (3, 'Kris', 'Cyun', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'KCYUN');
 
 INSERT INTO EMPLOYEES
