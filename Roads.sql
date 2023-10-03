@@ -38,7 +38,7 @@ CREATE TABLE LOCATIONS (
 CREATE TABLE PROJECTS (
     -- Attributes
     proj_code               NUMBER PRIMARY KEY,
-    proj_name               VARCHAR2(20) NOT NULL,
+    proj_name               VARCHAR2(40) NOT NULL,
     proj_description        VARCHAR2(60),
     proj_start_date         DATE NOT NULL,
     proj_end_date           DATE NOT NULL
@@ -82,7 +82,7 @@ CREATE TABLE ROADS (
     rd_id                   CHAR(6) PRIMARY KEY,
     rd_name                 VARCHAR2(30) NOT NULL,
     rd_description          VARCHAR2(60),
-    roadsrd_id              CHAR(5),
+    roadsrd_id              CHAR(6),
     -- Constraints
     CONSTRAINT fk_roads_roads_rd_id FOREIGN KEY (roadsrd_id) REFERENCES ROADS (rd_id)
 );
@@ -290,11 +290,11 @@ VALUES (696969, 'Chinese Moon Festival 2023', null, '26-09-2023', '3-10-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (10294, 'Plant Trees Event', '23-09-2023', null, '25-09-2023');
+VALUES (10294, 'Plant Trees Event', null, '23-09-2023', '25-09-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (12309, 'Sewers Maintenance', '13-07-2023', null, '27-07-2023');
+VALUES (12309, 'Sewers Maintenance', null, '13-07-2023', '27-07-2023');
 
 -- Employees Table
 
