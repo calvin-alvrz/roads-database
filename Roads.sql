@@ -69,7 +69,7 @@ CREATE TABLE JOBS (
 
 CREATE TABLE CONTRACTORS (
     -- Attributes
-    cont_name               VARCHAR2(20) PRIMARY KEY,
+    cont_name               VARCHAR2(30) PRIMARY KEY,
     cont_contact            NUMBER NOT NULL,
     cont_street             VARCHAR2(30) NOT NULL,
     cont_city               VARCHAR2(15) NOT NULL,
@@ -270,31 +270,31 @@ VALUES (12, 'Remuera', -36.869861, 174.777596, -36.877072, 174.824984, null);
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (112829, 'Safe Street Upgrade', '26-08-2023', '15-09-2023');
+VALUES (112829, 'Safe Street Upgrade', null, '26-08-2023', '15-09-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (221758, 'Community Enhancement 2023', '01-04-2023', null);
+VALUES (221758, 'Community Enhancement 2023', null, '01-04-2023', null);
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (238546, 'Smooth Concrete Project', '16-05-2023', '15-06-2023');
+VALUES (238546, 'Smooth Concrete Project', null, '16-05-2023', '15-06-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (84823, 'General Revitalization 2024', '31-12-2023', null);
+VALUES (84823, 'General Revitalization 2024', null, '31-12-2023', null);
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (696969, 'Chinese Moon Festival 2023', '26-09-2023', '3-10-2023');
+VALUES (696969, 'Chinese Moon Festival 2023', null, '26-09-2023', '3-10-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (10294, 'Plant Trees Event', '23-09-2023', '25-09-2023');
+VALUES (10294, 'Plant Trees Event', '23-09-2023', null, '25-09-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (12309, 'Sewers Maintenance', '13-07-2023', '27-07-2023');
+VALUES (12309, 'Sewers Maintenance', '13-07-2023', null, '27-07-2023');
 
 -- Employees Table
 
