@@ -319,103 +319,103 @@ VALUES (3, 'Kris', 'Cyun', '15-07-2021', '15-08-1995', 'M', '5 Burnley Terrace',
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (4, 'Emma', 'Zhao', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (4, 'Emma', 'Zhao', '15-07-2021', '07-04-1996', 'F', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'EZHAO');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (5, 'Michelle', 'Gass', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (5, 'Michelle', 'Gass', '15-07-2021', '22-03-2000', 'F', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'MGASS');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (6, 'Vitor', 'Costa', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (6, 'Vitor', 'Costa', '15-07-2021', '02-09-1998', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'VCOSTA');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (7, 'Lucy', 'Kim', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (7, 'Lucy', 'Kim', '15-07-2021', '10-03-2001', 'F', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'LKIM');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (8, 'Keanu', 'Rodges', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (8, 'Keanu', 'Rodges', '15-07-2021', '27-02-1999', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'KRODGES');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (9, 'Bwarerei', 'Kaieti', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (9, 'Bwarerei', 'Kaieti', '15-07-2021', '23-05-1998', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'BKAIETI');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (10, 'Matthew', 'Stockdale', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (10, 'Matthew', 'Stockdale', '15-07-2021', '25-12-1989', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'MSTOCKDALE');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (11, 'Callum', 'Clow', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (11, 'Callum', 'Clow', '15-07-2021', '31-07-1987', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'CCLOW');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (12, 'Leonardo', 'DiCaprio', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (12, 'Leonardo', 'DiCaprio', '15-07-2021', '01-06-1980', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'LDICAPRIO');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (13, 'Mark', 'Zuckerberg', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (13, 'Mark', 'Zuckerberg', '15-07-2021', '27-03-1985', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'MZUCKERBERG');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (14, 'Dylan', 'Aranha', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (14, 'Dylan', 'Aranha', '15-07-2021', '12-08-1996', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'DARANHA');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (15, 'Liv', 'Hawkins', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (15, 'Liv', 'Hawkins', '15-07-2021', '11-11-1987', 'F', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'LHAWKINS');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (16, 'Tay', 'Oh', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (16, 'Tay', 'Oh', '15-07-2021', '08-09-1999', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'TOH');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (17, 'Alex', 'Bialek', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (17, 'Alex', 'Bialek', '15-07-2021', '10-10-1986', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'ABIALEK');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (18, 'Alex', 'Bialek', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (18, 'Issabella', 'Stemson', '15-07-2021', '08-02-2002', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'ABIALEK');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (19, 'Alex', 'Bialek', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (19, 'Shelby', 'Kua', '15-07-2021', '13-06-1999', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'ABIALEK');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (20, 'Alex', 'Bialek', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+VALUES (20, 'Jose', 'Laserna', '15-07-2021', '20-11-2001', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'ABIALEK');
 
 -- Jobs Table
