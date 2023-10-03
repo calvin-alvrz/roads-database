@@ -542,15 +542,13 @@ INSERT INTO ROADS
 VALUES 
 ('CA0020', 'Dominion Road Mt Eden Stretch', null, 'CA0019');
 
-
-
 -- Contracts Table
 
 INSERT INTO CONTRACTS
 (cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
 projectsproj_code, contractorscont_name)
 VALUES
-();
+(1, 'SSU Contract', 'Roadworks that will upgrade how safe the road is', 30000.00, 250000.00,);
 
 -- Roadcat Table
 
