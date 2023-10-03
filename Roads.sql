@@ -80,7 +80,7 @@ CREATE TABLE CONTRACTORS (
 CREATE TABLE ROADS (
     -- Attributes
     rd_id                   CHAR(6) PRIMARY KEY,
-    rd_name                 VARCHAR2(30) NOT NULL,
+    rd_name                 VARCHAR2(50) NOT NULL,
     rd_description          VARCHAR2(60),
     roadsrd_id              CHAR(6),
     -- Constraints
@@ -257,7 +257,7 @@ VALUES (9, 'Mount Eden', -36.866562, 174.754194, -36.900084, 174.743208, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (10, 'Mount Roskill', -36.900084, 174.743208, -36.920415, 174.736380, null;
+VALUES (10, 'Mount Roskill', -36.900084, 174.743208, -36.920415, 174.736380, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
@@ -283,7 +283,7 @@ VALUES (112829, 'Safe Street Upgrade', null, '26-08-2023', '15-09-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (221758, 'Community Enhancement 2023', null, '01-04-2023', null);
+VALUES (221758, 'Community Enhancement 2023', null, '01-04-2023', '07-08-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
@@ -291,7 +291,7 @@ VALUES (238546, 'Smooth Concrete Project', null, '16-05-2023', '15-06-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (84823, 'General Revitalization 2024', null, '31-12-2023', null);
+VALUES (84823, 'General Revitalization 2024', null, '31-12-2023', '09-11-2024');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
@@ -512,7 +512,36 @@ VALUES
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
-('CA0015', 'SH1 Newmarket Stretch', null, 'CAA0013');
+('CA0015', 'SH1 Newmarket Stretch', null, 'CA0013');
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES 
+('CA0016', 'SH1 Epsom Stretch', null, 'CA0013');
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES 
+('CA0017', 'SH1 Greenlane Stretch', null, 'CA0013');
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES 
+('CA0018', 'Picton Street', null, null);
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES 
+('CA0019', 'Dominion Road', null, null);
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES 
+('CA0020', 'Dominion Road Mt Eden Stretch', null, 'CA0019');
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES 
+('CA0021', 'Dominion Road Mt Roskill Stretch', null, 'CA0019');
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES 
+('CA0020', 'Dominion Road Mt Eden Stretch', null, 'CA0019');
+
 
 
 -- Contracts Table
