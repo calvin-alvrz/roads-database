@@ -1,0 +1,544 @@
+--!! To clean the slate
+
+drop table CNTJOBS cascade constraints;
+drop table EMPJOBS cascade constraints;
+drop table EMPPROJ cascade constraints;
+drop table PROJROAD cascade constraints;
+drop table ROADLOC cascade constraints;
+drop table ROADCAT cascade constraints;
+drop table CONTRACTS cascade constraints;
+drop table CONTRACTORS cascade constraints;
+drop table JOBS cascade constraints;
+drop table EMPLOYEES cascade constraints;
+drop table PROJECTS cascade constraints;
+drop table LOCATIONS cascade constraints;
+drop table CATEGORIES cascade constraints;
+drop table ROADS cascade constraints;
+
+
+--!! Created Tables
+
+CREATE TABLE CATEGORIES (
+    -- Attributes
+    cat_id                  NUMBER(2) PRIMARY KEY,
+    cat_name                VARCHAR2(20) NOT NULL
+);
+
+CREATE TABLE LOCATIONS (
+    -- Attributes
+    loc_id                  NUMBER PRIMARY KEY,
+    loc_name                VARCHAR2(20) NOT NULL,
+    loc_start_lat           NUMBER(9,6) NOT NULL,
+    loc_start_long          NUMBER(9,6) NOT NULL,
+    loc_end_lat             NUMBER(9,6) NOT NULL,
+    loc_end_long            NUMBER(9,6) NOT NULL,
+    loc_description         VARCHAR2(60)
+);
+
+CREATE TABLE PROJECTS (
+    -- Attributes
+    proj_code               NUMBER PRIMARY KEY,
+    proj_name               VARCHAR2(20) NOT NULL,
+    proj_description        VARCHAR2(60),
+    proj_start_date         DATE NOT NULL,
+    proj_end_date           DATE NOT NULL
+);
+
+CREATE TABLE EMPLOYEES (
+    -- Attributes
+    emp_id                  NUMBER PRIMARY KEY,
+    emp_first_name          VARCHAR2(15) NOT NULL,
+    emp_last_name           VARCHAR2(15) NOT NULL,
+    emp_hire_date           DATE NOT NULL,
+    emp_dob                 DATE NOT NULL,
+    emp_gender              CHAR(1) NOT NULL,
+    emp_street              VARCHAR2(30) NOT NULL,
+    emp_city                VARCHAR2(15) NOT NULL,
+    emp_zip                 NUMBER NOT NULL,
+    emp_country             VARCHAR2(20) NOT NULL,
+    emp_phone               NUMBER NOT NULL,
+    emp_email               VARCHAR2(20) NOT NULL
+    
+);
+
+CREATE TABLE JOBS (
+    -- Attributes
+    job_name                VARCHAR2(25) PRIMARY KEY,
+    job_description         VARCHAR2(60)
+);
+
+CREATE TABLE CONTRACTORS (
+    -- Attributes
+    cont_name               VARCHAR2(20) PRIMARY KEY,
+    cont_contact            NUMBER NOT NULL,
+    cont_street             VARCHAR2(30) NOT NULL,
+    cont_city               VARCHAR2(15) NOT NULL,
+    cont_zip                NUMBER NOT NULL,
+    cont_country            VARCHAR2(20) NOT NULL
+);
+
+CREATE TABLE ROADS (
+    -- Attributes
+    rd_id                   CHAR(6) PRIMARY KEY,
+    rd_name                 VARCHAR2(30) NOT NULL,
+    rd_description          VARCHAR2(60),
+    roadsrd_id              CHAR(5),
+    -- Constraints
+    CONSTRAINT fk_roads_roads_rd_id FOREIGN KEY (roadsrd_id) REFERENCES ROADS (rd_id)
+);
+
+
+--!! Created Foreign Keys Tables
+
+CREATE TABLE CONTRACTS (
+    -- Attributes
+    cnt_number              NUMBER PRIMARY KEY,
+    cnt_name                VARCHAR2(15) NOT NULL,
+    cnt_description         VARCHAR2(60),
+    cnt_est_cost            NUMBER(38,2) NOT NULL,
+    cnt_actual_cost         NUMBER(38,2),
+    projectsproj_code       NUMBER,
+    contractorscont_name    VARCHAR2(20),
+    -- Constraints
+    CONSTRAINT fk_contracts_projects_proj_code FOREIGN KEY (projectsproj_code) REFERENCES PROJECTS (proj_code),
+    CONSTRAINT fk_contracts_contractors_cont_name FOREIGN KEY (contractorscont_name) REFERENCES CONTRACTORS (cont_name)
+);
+
+
+--!! Created Bridging Tables
+
+CREATE TABLE ROADCAT (
+    -- Attributes
+    roadsrd_id              CHAR(6), 
+    categoriescat_id        NUMBER, 
+    rd_status               VARCHAR2(15) NOT NULL,
+    -- Constraints
+    CONSTRAINT pk_roadcat_roadsrd_id PRIMARY KEY (roadsrd_id, categoriescat_id),
+    CONSTRAINT fk_roadcat_roads_rd_id FOREIGN KEY (roadsrd_id) REFERENCES ROADS(rd_id),
+    CONSTRAINT fk_roadcat_categories_rd_id FOREIGN KEY (categoriescat_id) REFERENCES CATEGORIES(cat_id)
+);
+
+CREATE TABLE ROADLOC (
+    -- Attributes
+    roadsrd_id              CHAR(6), 
+    locationsloc_id         NUMBER, 
+    rd_est_length           NUMBER NOT NULL,
+    -- Constraints
+    CONSTRAINT pk_roadloc_roadsrd_id PRIMARY KEY (roadsrd_id, locationsloc_id),
+    CONSTRAINT fk_roadloc_roads_rd_id FOREIGN KEY (roadsrd_id) REFERENCES ROADS(rd_id),
+    CONSTRAINT fk_roadloc_locations_loc_id FOREIGN KEY (locationsloc_id) REFERENCES LOCATIONS(loc_id)
+); 
+
+CREATE TABLE PROJROAD (
+    -- Attributes
+    roadsrd_id              CHAR(6), 
+    projectsproj_code       NUMBER, 
+    proj_status             VARCHAR2(15) NOT NULL,
+    -- Constraints
+    CONSTRAINT pk_projroad_roadsrd_id PRIMARY KEY (roadsrd_id, projectsproj_code),
+    CONSTRAINT fk_projroad_roads_rd_id FOREIGN KEY (roadsrd_id) REFERENCES ROADS(rd_id),
+    CONSTRAINT fk_projroad_projects_proj_code FOREIGN KEY (projectsproj_code) REFERENCES PROJECTS(proj_code)
+);
+
+CREATE TABLE EMPPROJ (
+    -- Attributes
+    projectsproj_code       NUMBER, 
+    employeesemp_id         NUMBER, 
+    emp_status              VARCHAR2(15) NOT NULL,
+    -- Constraints
+    CONSTRAINT pk_empproj_projectsproj_code PRIMARY KEY (projectsproj_code, employeesemp_id),
+    CONSTRAINT fk_empproj_projects_proj_code FOREIGN KEY (projectsproj_code) REFERENCES PROJECTS(proj_code),
+    CONSTRAINT fk_empproj_employees_emp_id FOREIGN KEY (employeesemp_id) REFERENCES EMPLOYEES(emp_id)
+);
+
+CREATE TABLE EMPJOBS (
+    -- Attributes
+    employeesemp_id         NUMBER, 
+    jobsjob_name            VARCHAR2(15), 
+    job_start_date          DATE NOT NULL,
+    job_end_date            DATE NOT NULL,
+    -- Constraints
+    CONSTRAINT pk_empjobs_employeesemp_id PRIMARY KEY (employeesemp_id, jobsjob_name),
+    CONSTRAINT fk_empjobs_employees_emp_id FOREIGN KEY (employeesemp_id) REFERENCES EMPLOYEES(emp_id),
+    CONSTRAINT fk_empjobs_jobs_job_name FOREIGN KEY (jobsjob_name) REFERENCES JOBS(job_name)
+);
+
+CREATE TABLE CNTJOBS (
+    -- Attributes
+    jobsjob_name            VARCHAR(15),
+    contractscnt_number     NUMBER, 
+    cnt_start_date          DATE NOT NULL,
+    cnt_end_date            DATE NOT NULL,
+    -- Constraints
+    CONSTRAINT pk_cntjobs_jobsjob_name PRIMARY KEY (jobsjob_name, contractscnt_number),
+    CONSTRAINT fk_cntjobs_jobs_job_name FOREIGN KEY (jobsjob_name) REFERENCES JOBS(job_name),
+    CONSTRAINT fk_cntjobs_contracts_cnt_number FOREIGN KEY (contractscnt_number) REFERENCES CONTRACTS(cnt_number)
+);
+
+
+
+--!! Insert
+--!! Values
+--!! Into
+--!! Tables
+
+-- Categories Table
+
+INSERT INTO CATEGORIES 
+(cat_id, cat_name)
+VALUES (1, 'Main Highway');
+
+INSERT INTO CATEGORIES 
+(cat_id, cat_name)
+VALUES (2, 'Secondary Road');
+
+INSERT INTO CATEGORIES 
+(cat_id, cat_name)
+VALUES (3, 'Unsealed Road');
+
+INSERT INTO CATEGORIES 
+(cat_id, cat_name)
+VALUES (4, 'Urban Road');
+
+INSERT INTO CATEGORIES 
+(cat_id, cat_name)
+VALUES (5, 'Rural Road');
+
+INSERT INTO CATEGORIES 
+(cat_id, cat_name)
+VALUES (6, 'Gravel Road');
+
+INSERT INTO CATEGORIES 
+(cat_id, cat_name)
+VALUES (7, 'Historic Road');
+
+INSERT INTO CATEGORIES 
+(cat_id, cat_name)
+VALUES (8, 'Scenic Route');
+
+-- Locations Table
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (1, 'Auckland CBD', -36.843402, 174.767215, -36.863225, 174.758627, 'Lower and Upper Queen Street');
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (2, 'Grafton', -36.864036, 174.766138, -36.870205, 174.772018, 'Stretch from Grafton to Newmarket');
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (3, 'Newmarket', -36.870205, 174.772018, -36.871848, 174.774187, '431 Exit to Newmarket');
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (4, 'Epsom', -36.870258, 174.772026, -36.887501, 174.794085, 'Stretch from Epsom to Greenlane');
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (5, 'Greenlane', -36.887501, 174.794085, -36.895062, 174.806324, 'Stretch from Greenlane to Ellerslie');
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (6, 'Howick', -36.891794, 174.928622, -36.895278, 174.933372, 'Lots of shops');
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (7, 'Mount Eden', -36.866562, 174.754194, -36.900084, 174.743208, 'Stretch from CBD to Mt Eden');
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (8, 'Mount Roskill', -36.900084, 174.743208, -36.920415, 174.736380, 'Stretch from Mt Eden to Mt Roskill');
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (9, 'Manukau', -36.996774, 174.852826, -36.987273, 174.880272, null);
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (10, 'New Lynn', -36.914137, 174.685694, -36.913943, 174.685803, 'Chloe lives here');
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (11, 'Ponsonby', -36.847351, 174.744175, -36.859709, 174.752651, 'Heart of Ponsonby');
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (12, 'Remuera', -36.869861, 174.777596, -36.877072, 174.824984, null);
+
+-- Projects Table
+
+INSERT INTO PROJECTS
+(proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
+VALUES (112829, 'Safe Street Upgrade', '26-08-2023', '15-09-2023');
+
+INSERT INTO PROJECTS
+(proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
+VALUES (221758, 'Community Enhancement 2023', '01-04-2023', null);
+
+INSERT INTO PROJECTS
+(proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
+VALUES (238546, 'Smooth Concrete Project', '16-05-2023', '15-06-2023');
+
+INSERT INTO PROJECTS
+(proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
+VALUES (84823, 'General Revitalization 2024', '31-12-2023', null);
+
+INSERT INTO PROJECTS
+(proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
+VALUES (696969, 'Chinese Moon Festival 2023', '26-09-2023', '3-10-2023');
+
+INSERT INTO PROJECTS
+(proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
+VALUES (10294, 'Plant Trees Event', '23-09-2023', '25-09-2023');
+
+INSERT INTO PROJECTS
+(proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
+VALUES (12309, 'Sewers Maintenance', '13-07-2023', '27-07-2023');
+
+-- Employees Table
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (1, 'Calvin', 'Alvarez', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'CALVAREZ');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (2, 'Chloe', 'Kua', '23-02-2022', '11-02-2003', 'F', '29 Clay Works Ln',
+'Auckland', 0600, 'New Zealand', 0239237584, 'CKUA');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (3, 'Kris', 'Cyun', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'KCYUN');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (4, 'Emma', 'Zhao', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'EZHAO');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (5, 'Michelle', 'Gass', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'MGASS');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (6, 'Vitor', 'Costa', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'VCOSTA');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (7, 'Lucy', 'Kim', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'LKIM');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (8, 'Keanu', 'Rodges', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'KRODGES');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (9, 'Bwarerei', 'Kaieti', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'BKAIETI');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (10, 'Matthew', 'Stockdale', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'MSTOCKDALE');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (11, 'Callum', 'Clow', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'CCLOW');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (12, 'Leonardo', 'DiCaprio', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'LDICAPRIO');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (13, 'Mark', 'Zuckerberg', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'MZUCKERBERG');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (14, 'Dylan', 'Aranha', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'DARANHA');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (15, 'Liv', 'Hawkins', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'LHAWKINS');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (16, 'Tay', 'Oh', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'TOH');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (17, 'Alex', 'Bialek', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'ABIALEK');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (18, 'Alex', 'Bialek', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'ABIALEK');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (19, 'Alex', 'Bialek', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'ABIALEK');
+
+INSERT INTO EMPLOYEES
+(emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
+emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
+VALUES (20, 'Alex', 'Bialek', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
+'Auckland', 1024, 'New Zealand', 0276439760, 'ABIALEK');
+
+-- Jobs Table
+
+INSERT INTO JOBS
+(job_name, job_description)
+VALUES ('Road Construction Manager', 'Oversees all aspects of road construction projects.');
+
+INSERT INTO JOBS 
+(job_name, job_description)
+VALUES ('Civil Engineer', null);
+
+INSERT INTO JOBS 
+(job_name, job_description)
+VALUES ('Heavy Equipment Operator', null);
+
+INSERT INTO JOBS 
+(job_name, job_description)
+VALUES ('Surveyor', 'Measures and maps out road construction sites.');
+
+INSERT INTO JOBS 
+(job_name, job_description)
+VALUES ('Traffic Control Officer', null);
+
+INSERT INTO JOBS
+(job_name, job_description)
+VALUES ('Safety Inspector', 'Monitors safety practices at the construction site.');
+
+INSERT INTO JOBS
+(job_name, job_description)
+VALUES ('Finance Manager', 'Handles project budgeting and financial management.');
+
+INSERT INTO JOBS
+(job_name, job_description)
+VALUES ('IT Support Technician', null);
+
+-- Contractors Table
+
+INSERT INTO CONTRACTORS 
+(cont_name, cont_contact, cont_street, cont_city, cont_zip, cont_country)
+VALUES 
+('CPB Contractors', 640276437584, '19 Hargreaves St', 'Auckland', 1011, 'New Zealand');
+
+INSERT INTO CONTRACTORS 
+(cont_name, cont_contact, cont_street, cont_city, cont_zip, cont_country)
+VALUES 
+('HEB Construction', 640271927584, '105 Wiri Station Rd', 'Auckland', 2104, 'New Zealand');
+
+INSERT INTO CONTRACTORS 
+(cont_name, cont_contact, cont_street, cont_city, cont_zip, cont_country)
+VALUES 
+('Fulton Hogan', 6402764739541, '10 Reliable Way', 'Auckland', 1060, 'New Zealand');
+
+INSERT INTO CONTRACTORS (cont_name, cont_contact, cont_street, cont_city, cont_zip, cont_country)
+VALUES 
+('Downer', 61312345678, '50 Rose St', 'Sydney', 2000, 'Australia');
+
+INSERT INTO CONTRACTORS 
+(cont_name, cont_contact, cont_street, cont_city, cont_zip, cont_country)
+VALUES 
+('Fletcher Construction', 61362453784, '15 Lathams Rd', 'Melbourne', 3202, 'Australia');
+
+-- Roads Table
+
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES
+('CA0010', 'Queen Street', null, null);
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES
+('CA0011', 'Lower Queen Street', null, 'CA0010');
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES
+('CA0012', 'Upper Queen Street', null, 'CA0010');       
+
+-- Contracts Table
+
+INSERT INTO CONTRACTS
+(cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
+projectsproj_code, contractorscont_name)
+VALUES
+();
+
+-- Roadcat Table
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+();
+
+-- Roadloc Table
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_length)
+VALUES
+();
+
+-- Projroad Table
+
+INSERT INTO PROJROAD
+(roadsrd_id, projectsproj_code, proj_status)
+VALUES
+();
+
+-- Empproj Table
+
+INSERT INTO EMPPROJ
+(projectsproj_code, employeesemp_id, emp_status)
+VALUES
+();
+
+-- Empjobs Table
+
+INSERT INTO EMPJOBS
+(employeesemp_id, jobsjob_name, job_start_date, job_end_date)
+VALUES
+();
+
+-- Cntjobs Table
+
+INSERT INTO CNTJOBS
+(jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
+VALUES
+();
