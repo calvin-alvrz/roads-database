@@ -221,15 +221,15 @@ VALUES (8, 'Scenic Route');
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (1, 'Auckland CBD - Corner One', -36.843402, 174.767215, -36.863225, 174.758627, null);
+VALUES (1, 'Auckland CBD - Corner One', -36.843402, 174.767215, -36.863225, 174.758627, 'Bottom of Queen St');
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (2, 'Auckland CBD - Corner Two', -36.843402, 174.767215, -36.863225, 174.758627, null);
+VALUES (2, 'Auckland CBD - Corner Two', -36.843402, 174.767215, -36.863225, 174.758627, 'Mid Queen St');
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (3, 'Auckland CBD - Corner Three', -36.843402, 174.767215, -36.863225, 174.758627, null);
+VALUES (3, 'Auckland CBD - Corner Three', -36.843402, 174.767215, -36.863225, 174.758627, 'Top of Queen St');
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
@@ -237,7 +237,7 @@ VALUES (4, 'Grafton', -36.864036, 174.766138, -36.870205, 174.772018, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (5, 'Newmarket', -36.870205, 174.772018, -36.871848, 174.774187, null);
+VALUES (5, 'Newmarket', -36.870205, 174.772018, -36.871848, 174.774187, 'Motorway Exit');
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
@@ -508,7 +508,7 @@ INSERT INTO CONTRACTS
 (cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
 projectsproj_code, contractorscont_name)
 VALUES
-();
+(1,);
 
 -- Roadcat Table
 
