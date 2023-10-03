@@ -27,7 +27,7 @@ CREATE TABLE CATEGORIES (
 CREATE TABLE LOCATIONS (
     -- Attributes
     loc_id                  NUMBER PRIMARY KEY,
-    loc_name                VARCHAR2(20) NOT NULL,
+    loc_name                VARCHAR2(40) NOT NULL,
     loc_start_lat           NUMBER(9,6) NOT NULL,
     loc_start_long          NUMBER(9,6) NOT NULL,
     loc_end_lat             NUMBER(9,6) NOT NULL,
@@ -216,55 +216,64 @@ INSERT INTO CATEGORIES
 (cat_id, cat_name)
 VALUES (8, 'Scenic Route');
 
+--assd
 -- Locations Table
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (1, 'Auckland CBD', -36.843402, 174.767215, -36.863225, 174.758627, 'Lower and Upper Queen Street');
+VALUES (1, 'Auckland CBD - Corner One', -36.843402, 174.767215, -36.863225, 174.758627, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (2, 'Grafton', -36.864036, 174.766138, -36.870205, 174.772018, 'Stretch from Grafton to Newmarket');
+VALUES (2, 'Auckland CBD - Corner Two', -36.843402, 174.767215, -36.863225, 174.758627, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (3, 'Newmarket', -36.870205, 174.772018, -36.871848, 174.774187, '431 Exit to Newmarket');
+VALUES (3, 'Auckland CBD - Corner Three', -36.843402, 174.767215, -36.863225, 174.758627, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (4, 'Epsom', -36.870258, 174.772026, -36.887501, 174.794085, 'Stretch from Epsom to Greenlane');
+VALUES (4, 'Grafton', -36.864036, 174.766138, -36.870205, 174.772018, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (5, 'Greenlane', -36.887501, 174.794085, -36.895062, 174.806324, 'Stretch from Greenlane to Ellerslie');
+VALUES (5, 'Newmarket', -36.870205, 174.772018, -36.871848, 174.774187, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (6, 'Howick', -36.891794, 174.928622, -36.895278, 174.933372, 'Lots of shops');
+VALUES (6, 'Epsom', -36.870258, 174.772026, -36.887501, 174.794085, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (7, 'Mount Eden', -36.866562, 174.754194, -36.900084, 174.743208, 'Stretch from CBD to Mt Eden');
+VALUES (7, 'Greenlane', -36.887501, 174.794085, -36.895062, 174.806324, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (8, 'Mount Roskill', -36.900084, 174.743208, -36.920415, 174.736380, 'Stretch from Mt Eden to Mt Roskill');
+VALUES (8, 'Howick', -36.891794, 174.928622, -36.895278, 174.933372, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (9, 'Manukau', -36.996774, 174.852826, -36.987273, 174.880272, null);
+VALUES (9, 'Mount Eden', -36.866562, 174.754194, -36.900084, 174.743208, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (10, 'New Lynn', -36.914137, 174.685694, -36.913943, 174.685803, 'Chloe lives here');
+VALUES (10, 'Mount Roskill', -36.900084, 174.743208, -36.920415, 174.736380, null;
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (11, 'Ponsonby', -36.847351, 174.744175, -36.859709, 174.752651, 'Heart of Ponsonby');
+VALUES (11, 'Manukau', -36.996774, 174.852826, -36.987273, 174.880272, null);
 
 INSERT INTO LOCATIONS 
 (loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
-VALUES (12, 'Remuera', -36.869861, 174.777596, -36.877072, 174.824984, null);
+VALUES (12, 'New Lynn', -36.914137, 174.685694, -36.913943, 174.685803, null);
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (13, 'Ponsonby', -36.847351, 174.744175, -36.859709, 174.752651, null);
+
+INSERT INTO LOCATIONS 
+(loc_id, loc_name, loc_start_lat, loc_start_long, loc_end_lat, loc_end_long, loc_description)
+VALUES (14, 'Remuera', -36.869861, 174.777596, -36.877072, 174.824984, null);
 
 -- Projects Table
 
@@ -307,13 +316,13 @@ VALUES (1, 'Calvin', 'Alvarez', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terr
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (2, 'Chloe', 'Kua', '23-02-2022', '11-02-2003', 'F', '29 Clay Works Lane',
+VALUES (2, 'Chloe', 'Kua', '23-02-2022', '11-02-2003', 'F', '29 Clay Works Ln',
 'Auckland', 0600, 'New Zealand', 0239237584, 'CKUA');
 
 INSERT INTO EMPLOYEES
 (emp_id, emp_first_name, emp_last_name, emp_hire_date, emp_dob, emp_gender,
 emp_street, emp_city, emp_zip, emp_country, emp_phone, emp_email)
-VALUES (3, 'Kris', 'Cyun', '15-07-2021', '15-08-1995', 'M', '5 Burnley Terrace',
+VALUES (3, 'Kris', 'Cyun', '15-07-2021', '27-05-2000', 'M', '5 Burnley Terrace',
 'Auckland', 1024, 'New Zealand', 0276439760, 'KCYUN');
 
 INSERT INTO EMPLOYEES
