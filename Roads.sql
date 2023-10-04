@@ -540,7 +540,19 @@ VALUES
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
-('CA0020', 'Dominion Road Mt Eden Stretch', null, 'CA0019');
+('CA0022', 'Cavendish Drive', null, null);
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES 
+('CA0023', 'Clay Works Lane', null, null);
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES 
+('CA0024', 'Ponsonby Road', null, null);
+INSERT INTO ROADS
+(rd_id, rd_name, rd_description, roadsrd_id)
+VALUES 
+('CA0024', 'Remuera Road', null, null);
 
 
 
