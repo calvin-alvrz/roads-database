@@ -97,6 +97,8 @@ CREATE TABLE CONTRACTS (
     cnt_description         VARCHAR2(60),
     cnt_est_cost            NUMBER(38,2) NOT NULL,
     cnt_actual_cost         NUMBER(38,2),
+    cnt_start_date          DATE NOT NULL,
+    cnt_end_date            DATE NOT NULL,
     projectsproj_code       NUMBER,
     contractorscont_name    VARCHAR2(20),
     -- Constraints
@@ -167,8 +169,8 @@ CREATE TABLE CNTJOBS (
     -- Attributes
     jobsjob_name            VARCHAR(15),
     contractscnt_number     NUMBER, 
-    cnt_start_date          DATE NOT NULL,
-    cnt_end_date            DATE NOT NULL,
+    jobs_mgmt_start_date    DATE NOT NULL,
+    jobs_mgmt_end_date      DATE NOT NULL,
     -- Constraints
     CONSTRAINT pk_cntjobs_jobsjob_name PRIMARY KEY (jobsjob_name, contractscnt_number),
     CONSTRAINT fk_cntjobs_jobs_job_name FOREIGN KEY (jobsjob_name) REFERENCES JOBS(job_name),
@@ -287,7 +289,7 @@ VALUES (221758, 'Community Enhancement 2023', null, '01-04-2023', '07-08-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (238546, 'Smooth Concrete Project', null, '16-05-2023', '15-06-2023');
+VALUES (238546, 'Smooth Concrete Project', null, '16-05-2023', '15-10-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
@@ -295,11 +297,11 @@ VALUES (84823, 'General Revitalization 2024', null, '31-12-2023', '09-11-2024');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (696969, 'Chinese Moon Festival 2023', null, '26-09-2023', '3-10-2023');
+VALUES (696969, 'Chinese Moon Festival 2023', null, '26-09-2023', '03-10-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
-VALUES (10294, 'Plant Trees Event', null, '23-09-2023', '25-09-2023');
+VALUES (10294, 'Plant Trees Event', null, '01-09-2023', '30-09-2023');
 
 INSERT INTO PROJECTS
 (proj_code, proj_name, proj_description, proj_start_date, proj_end_date)
@@ -493,62 +495,145 @@ INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES
 ('CA0010', 'Queen Street', null, null);
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES
 ('CA0011', 'Lower Queen Street', null, 'CA0010');
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES
 ('CA0012', 'Upper Queen Street', null, 'CA0010');  
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
 ('CA0013', 'SH1', null, null);
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
 ('CA0014', 'SH1 Grafton Stretch', null, 'CA0013');
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
 ('CA0015', 'SH1 Newmarket Stretch', null, 'CA0013');
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
 ('CA0016', 'SH1 Epsom Stretch', null, 'CA0013');
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
 ('CA0017', 'SH1 Greenlane Stretch', null, 'CA0013');
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
 ('CA0018', 'Picton Street', null, null);
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
 ('CA0019', 'Dominion Road', null, null);
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
 ('CA0020', 'Dominion Road Mt Eden Stretch', null, 'CA0019');
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
 ('CA0021', 'Dominion Road Mt Roskill Stretch', null, 'CA0019');
+
 INSERT INTO ROADS
 (rd_id, rd_name, rd_description, roadsrd_id)
 VALUES 
-('CA0020', 'Dominion Road Mt Eden Stretch', null, 'CA0019');
+('CA0022', 'Cavendish Drive', null, null);
 
 -- Contracts Table
 
 INSERT INTO CONTRACTS
 (cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
-projectsproj_code, contractorscont_name)
+cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
 VALUES
-(1, 'SSU Contract', 'Roadworks that will upgrade how safe the road is', 30000.00, 250000.00,);
+(1, 'SSU Contract A', 'Roadworks that will upgrade how safe the road is',
+300000.00, 250000.00, '26-08-2023', '05-09-2023', 112829, 'Fulton Hogan');
+
+INSERT INTO CONTRACTS
+(cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
+cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
+VALUES
+(2, 'SSU Contract B', 'Revision of how safe the road has become',
+120000.00, 130000.00, '06-09-2023', '15-09-2023', 112829, 'Fulton Hogan');
+
+INSERT INTO CONTRACTS
+(cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
+cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
+VALUES
+(3, 'CE 2023 Contract', 'Development and construction of decorations',
+50000.00, 70000.00, '01-04-2023', '07-08-2023', 221758, 'CPB Contractors');
+
+INSERT INTO CONTRACTS
+(cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
+cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
+VALUES
+(4, 'SCP Contract X', 'Change the concrete of the road',
+100000.00, 95000.00, '16-05-2023', '15-08-2023', 238546, 'Downer');
+
+INSERT INTO CONTRACTS
+(cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
+cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
+VALUES
+(5, 'SCP Contract Y', 'Revision of the progress',
+30000.00, 32000.00, '16-08-2023', '20-09-2023', 238546, 'Downer');
+
+INSERT INTO CONTRACTS
+(cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
+cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
+VALUES
+(6, 'SCP Contract Z', 'Final details to be done',
+10000.00, 9000.00, '21-09-2023', '15-10-2023', 238546, 'Downer');
+
+INSERT INTO CONTRACTS
+(cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
+cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
+VALUES
+(7, 'GR2024 Contract', 'Major change in the whole road',
+200000.00, null, '31-12-2023', '09-11-2024', 84823, 'HEB Construction');
+
+INSERT INTO CONTRACTS
+(cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
+cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
+VALUES
+(8, 'CMF 2023 Contract', 'Preparations for the chinese moon festival',
+50000.00, 52000.00, '26-09-2023', '03-19-2023', 696969, 'Downer');
+
+INSERT INTO CONTRACTS
+(cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
+cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
+VALUES
+(9, 'PTE Contract', 'Plant trees along the sidewalk',
+70000.00, 65000.00, '01-09-2023', '30-09-2023', 10294, 'Downer');
+
+INSERT INTO CONTRACTS
+(cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
+cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
+VALUES
+(10, 'SM Contract A', 'Sewers maintenance to be done',
+65000.00, 68000.00, '13-07-2023', '20-07-2023', 12309, 'Fletcher Construction');
+
+INSERT INTO CONTRACTS
+(cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
+cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
+VALUES
+(11, 'SM Contract B', 'Check of impacts on roads',
+27000.00, 22000.00, '16-08-2023', '20-09-2023', 12309, 'Fulton Hogan');
 
 -- Roadcat Table
 
@@ -569,7 +654,52 @@ VALUES
 INSERT INTO PROJROAD
 (roadsrd_id, projectsproj_code, proj_status)
 VALUES
-();
+('CA0010', 84823, 'Inactive');
+
+INSERT INTO PROJROAD
+(roadsrd_id, projectsproj_code, proj_status)
+VALUES
+('CA0011', 84823, 'Inactive');
+
+INSERT INTO PROJROAD
+(roadsrd_id, projectsproj_code, proj_status)
+VALUES
+('CA0013', 238546, 'Active');
+
+INSERT INTO PROJROAD
+(roadsrd_id, projectsproj_code, proj_status)
+VALUES
+('CA0015', 238546, 'Active');
+
+INSERT INTO PROJROAD
+(roadsrd_id, projectsproj_code, proj_status)
+VALUES
+('CA0018', 112829, 'Finished');
+
+INSERT INTO PROJROAD
+(roadsrd_id, projectsproj_code, proj_status)
+VALUES
+('CA0018', 10294, 'Finished');
+
+INSERT INTO PROJROAD
+(roadsrd_id, projectsproj_code, proj_status)
+VALUES
+('CA0022', 12309, 'Finished');
+
+INSERT INTO PROJROAD
+(roadsrd_id, projectsproj_code, proj_status)
+VALUES
+('CA0022', 221758, 'Finished');
+
+INSERT INTO PROJROAD
+(roadsrd_id, projectsproj_code, proj_status)
+VALUES
+('CA0019', 696969, 'Active');
+
+INSERT INTO PROJROAD
+(roadsrd_id, projectsproj_code, proj_status)
+VALUES
+('CA0020', 696969, 'Active');
 
 -- Empproj Table
 
