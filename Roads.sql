@@ -639,7 +639,123 @@ VALUES
 INSERT INTO ROADCAT
 (roadsrd_id, categoriescat_id, rd_status)
 VALUES
-();
+('CA0010',4,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0011',2,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0011',4,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0012',2,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0012',4,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0013',1,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0013',4,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0014',1,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0014',2,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0014',4,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0015',1,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0015',2,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0015',4,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0016',1,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0016',2,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0014',4,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0017',1,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0017',2,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0017',4,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0018',4,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0019',4,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0020',2,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0021',4,'Open');
+
+INSERT INTO ROADCAT
+(roadsrd_id, categoriescat_id, rd_status)
+VALUES
+('CA0022',4,'Open');
+
 
 -- Roadloc Table
 
