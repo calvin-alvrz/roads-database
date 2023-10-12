@@ -124,7 +124,7 @@ CREATE TABLE ROADLOC (
     -- Attributes
     roadsrd_id              CHAR(6), 
     locationsloc_id         NUMBER, 
-    rd_est_length           NUMBER NOT NULL,
+    rd_est_elevation           NUMBER NOT NULL,
     -- Constraints
     CONSTRAINT pk_roadloc_roadsrd_id PRIMARY KEY (roadsrd_id, locationsloc_id),
     CONSTRAINT fk_roadloc_roads_rd_id FOREIGN KEY (roadsrd_id) REFERENCES ROADS(rd_id),
@@ -456,7 +456,7 @@ VALUES ('Safety Inspector', 'Monitors safety practices at the construction site.
 
 INSERT INTO JOBS
 (job_name, job_description)
-VALUES ('Finance Manager', 'Handles project budgeting and financial management.');
+VALUES ('Finance Consultant', 'Advises project budgeting and financial management.');
 
 INSERT INTO JOBS
 (job_name, job_description)
@@ -938,4 +938,25 @@ VALUES
 INSERT INTO CNTJOBS
 (jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
 VALUES
-();
+('Road Construction Manager', 1,'26-08-2023', '05-09-2023');
+
+INSERT INTO CNTJOBS
+(jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
+VALUES
+('Road Construction Manager', 4, '16-05-2023', '15-08-2023');
+
+INSERT INTO CNTJOBS
+(jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
+VALUES
+('Road Construction Manager', 9, '01-09-2023','30-09-2023');
+
+INSERT INTO CNTJOBS
+(jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
+VALUES
+('Civil Engineer', 7, '31-12-2023', '09-11-2024');
+
+INSERT INTO CNTJOBS
+(jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
+VALUES
+('Safety Inspector', 11, '16-08-2023', '20-09-2023');
+
