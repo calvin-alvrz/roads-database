@@ -760,9 +760,112 @@ VALUES
 -- Roadloc Table
 
 INSERT INTO ROADLOC
-(roadsrd_id, locationsloc_id, rd_est_length)
+(roadsrd_id, locationsloc_id, rd_est_elevation)
 VALUES
-();
+('CA0010',1,61);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0010',2,61);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0010',3,61);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0011',2,61);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0011',3,61);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0012',1,61);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0012',2,61);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0013',4,45);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0013',5,45);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0013',6,45);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0013',7,45);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0014',4,33);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0015',5,37);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0016',6,31);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0017',7,36);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0018',8,45);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0019',9,53);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0019',10,53);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0020',9,49);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0021',10,43);
+
+INSERT INTO ROADLOC
+(roadsrd_id, locationsloc_id, rd_est_elevation)
+VALUES
+('CA0022',11,48);
+
+
+
 
 -- Projroad Table
 
