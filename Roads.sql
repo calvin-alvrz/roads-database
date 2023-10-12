@@ -978,7 +978,6 @@ VALUES
 INSERT INTO CNTJOBS
 (jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
 VALUES
-();
 ('Road Construction Manager', 1,'26-08-2023', '05-09-2023');
 
 INSERT INTO CNTJOBS
