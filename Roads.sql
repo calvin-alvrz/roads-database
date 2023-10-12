@@ -924,20 +924,61 @@ VALUES
 INSERT INTO EMPPROJ
 (projectsproj_code, employeesemp_id, emp_status)
 VALUES
-();
+(112829, 1, 'Active');
+
+INSERT INTO EMPPROJ
+(projectsproj_code, employeesemp_id, emp_status)
+VALUES
+(112829, 2, 'Sick Leave');
+
+INSERT INTO EMPPROJ
+(projectsproj_code, employeesemp_id, emp_status)
+VALUES
+(112829, 3, 'Vacation');
+
+INSERT INTO EMPPROJ
+(projectsproj_code, employeesemp_id, emp_status)
+VALUES
+(112829, 4, 'Active');
+
+INSERT INTO EMPPROJ
+(projectsproj_code, employeesemp_id, emp_status)
+VALUES
+(112829, 5, 'Active');
 
 -- Empjobs Table
 
 INSERT INTO EMPJOBS
 (employeesemp_id, jobsjob_name, job_start_date, job_end_date)
 VALUES
-();
+(1, 'Road Construction Manager', '15-07-2021', '12-10-2025');
+
+INSERT INTO EMPJOBS
+(employeesemp_id, jobsjob_name, job_start_date, job_end_date)
+VALUES
+(1, 'IT Support Technician', '15-07-2022', '06-05-2023');
+
+INSERT INTO EMPJOBS
+(employeesemp_id, jobsjob_name, job_start_date, job_end_date)
+VALUES
+(2, 'Road Construction Manager', '23-02-2022', '05-01-2026');
+
+INSERT INTO EMPJOBS
+(employeesemp_id, jobsjob_name, job_start_date, job_end_date)
+VALUES
+(3, 'Safety Inspector', '30-09-2017', '28-05-2024');
+
+INSERT INTO EMPJOBS
+(employeesemp_id, jobsjob_name, job_start_date, job_end_date)
+VALUES
+(3, 'Heavy Equipment Operator', '30-09-2017', '12-10-2025');
 
 -- Cntjobs Table
 
 INSERT INTO CNTJOBS
 (jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
 VALUES
+();
 ('Road Construction Manager', 1,'26-08-2023', '05-09-2023');
 
 INSERT INTO CNTJOBS
