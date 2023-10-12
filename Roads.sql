@@ -93,14 +93,14 @@ CREATE TABLE ROADS (
 CREATE TABLE CONTRACTS (
     -- Attributes
     cnt_number              NUMBER PRIMARY KEY,
-    cnt_name                VARCHAR2(15) NOT NULL,
+    cnt_name                VARCHAR2(20) NOT NULL,
     cnt_description         VARCHAR2(60),
     cnt_est_cost            NUMBER(38,2) NOT NULL,
     cnt_actual_cost         NUMBER(38,2),
     cnt_start_date          DATE NOT NULL,
     cnt_end_date            DATE NOT NULL,
     projectsproj_code       NUMBER,
-    contractorscont_name    VARCHAR2(20),
+    contractorscont_name    VARCHAR2(30),
     -- Constraints
     CONSTRAINT fk_contracts_projects_proj_code FOREIGN KEY (projectsproj_code) REFERENCES PROJECTS (proj_code),
     CONSTRAINT fk_contracts_contractors_cont_name FOREIGN KEY (contractorscont_name) REFERENCES CONTRACTORS (cont_name)
@@ -124,7 +124,7 @@ CREATE TABLE ROADLOC (
     -- Attributes
     roadsrd_id              CHAR(6), 
     locationsloc_id         NUMBER, 
-    rd_est_elevation           NUMBER NOT NULL,
+    rd_est_elevation        NUMBER NOT NULL,
     -- Constraints
     CONSTRAINT pk_roadloc_roadsrd_id PRIMARY KEY (roadsrd_id, locationsloc_id),
     CONSTRAINT fk_roadloc_roads_rd_id FOREIGN KEY (roadsrd_id) REFERENCES ROADS(rd_id),
@@ -156,7 +156,7 @@ CREATE TABLE EMPPROJ (
 CREATE TABLE EMPJOBS (
     -- Attributes
     employeesemp_id         NUMBER, 
-    jobsjob_name            VARCHAR2(15), 
+    jobsjob_name            VARCHAR2(25), 
     job_start_date          DATE NOT NULL,
     job_end_date            DATE NOT NULL,
     -- Constraints
@@ -167,7 +167,7 @@ CREATE TABLE EMPJOBS (
 
 CREATE TABLE CNTJOBS (
     -- Attributes
-    jobsjob_name            VARCHAR(15),
+    jobsjob_name            VARCHAR(25),
     contractscnt_number     NUMBER, 
     jobs_mgmt_start_date    DATE NOT NULL,
     jobs_mgmt_end_date      DATE NOT NULL,
@@ -611,7 +611,7 @@ INSERT INTO CONTRACTS
 cnt_start_date, cnt_end_date, projectsproj_code, contractorscont_name)
 VALUES
 (8, 'CMF 2023 Contract', 'Preparations for the chinese moon festival',
-50000.00, 52000.00, '26-09-2023', '03-19-2023', 696969, 'Downer');
+50000.00, 52000.00, '26-09-2023', '03-12-2023', 696969, 'Downer');
 
 INSERT INTO CONTRACTS
 (cnt_number, cnt_name, cnt_description, cnt_est_cost, cnt_actual_cost,
@@ -684,7 +684,7 @@ VALUES
 INSERT INTO ROADCAT
 (roadsrd_id, categoriescat_id, rd_status)
 VALUES
-('CA0014',4,'Open');
+('CA0014',4,'Open'); /* Duplicate?*/
 
 INSERT INTO ROADCAT
 (roadsrd_id, categoriescat_id, rd_status)
@@ -714,7 +714,7 @@ VALUES
 INSERT INTO ROADCAT
 (roadsrd_id, categoriescat_id, rd_status)
 VALUES
-('CA0014',4,'Open');
+('CA0014',4,'Open'); /* Duplicate?*/
 
 INSERT INTO ROADCAT
 (roadsrd_id, categoriescat_id, rd_status)
@@ -976,27 +976,27 @@ VALUES
 -- Cntjobs Table
 
 INSERT INTO CNTJOBS
-(jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
+(jobsjob_name, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
 ('Road Construction Manager', 1,'26-08-2023', '05-09-2023');
 
 INSERT INTO CNTJOBS
-(jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
+(jobsjob_name, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
 ('Road Construction Manager', 4, '16-05-2023', '15-08-2023');
 
 INSERT INTO CNTJOBS
-(jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
+(jobsjob_name, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
 ('Road Construction Manager', 9, '01-09-2023','30-09-2023');
 
 INSERT INTO CNTJOBS
-(jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
+(jobsjob_name, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
 ('Civil Engineer', 7, '31-12-2023', '09-11-2024');
 
 INSERT INTO CNTJOBS
-(jobsjob_name, contractscnt_number, cnt_start_date, cnt_end_date)
+(jobsjob_name, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
 ('Safety Inspector', 11, '16-08-2023', '20-09-2023');
 
