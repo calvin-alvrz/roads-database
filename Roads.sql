@@ -714,7 +714,7 @@ VALUES
 INSERT INTO ROADCAT
 (roadsrd_id, categoriescat_id, rd_status)
 VALUES
-('CA0014',4,'Open'); /* Duplicate?*/
+('CA0016',4,'Open'); /* Duplicate?*/
 
 INSERT INTO ROADCAT
 (roadsrd_id, categoriescat_id, rd_status)
