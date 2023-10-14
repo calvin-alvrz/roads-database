@@ -169,8 +169,8 @@ CREATE TABLE CNTJOBS (
     -- Attributes
     jobsjob_name            VARCHAR(25),
     contractscnt_number     NUMBER, 
-    jobs_mgmt_start_date    DATE NOT NULL,
-    jobs_mgmt_end_date      DATE NOT NULL,
+    jobs_mgmt_start_date    DATE,
+    jobs_mgmt_end_date      DATE,
     -- Constraints
     CONSTRAINT pk_cntjobs_jobsjob_name PRIMARY KEY (jobsjob_name, contractscnt_number),
     CONSTRAINT fk_cntjobs_jobs_job_name FOREIGN KEY (jobsjob_name) REFERENCES JOBS(job_name),
