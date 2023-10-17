@@ -41,3 +41,11 @@ AND j.job_name = ej.jobsjob_name
 AND j.job_name = cj.jobsjob_name
 AND c.cnt_number = cj.contractscnt_number
 AND UPPER(j.job_name) LIKE '%MANAGER';
+
+--! Query 4:
+
+/*Purpose of the query is to create a report with the subsections of roads that
+are longer than 2 kilometres and order them in ascending order by the road's name.
+It retrieves the following details (rd_id, rd_id, road_name,rd_est_length) */
+
+SELECT
