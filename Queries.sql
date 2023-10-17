@@ -49,3 +49,8 @@ are longer than 2 kilometres and order them in ascending order by the road's nam
 It retrieves the following details (rd_id, rd_id, road_name,rd_est_length) */
 
 SELECT
+
+--! Query 5:
+
+/*Purpose of the query is to return a report that summarizes the total cost of a project
+regarding the actual and estimated costs on the contracts table. */
