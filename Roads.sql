@@ -124,7 +124,7 @@ CREATE TABLE ROADLOC (
     -- Attributes
     roadsrd_id              CHAR(6), 
     locationsloc_id         NUMBER, 
-    rd_est_length           NUMBER NOT NULL,
+    rd_est_length           NUMBER(3,1) NOT NULL,
     -- Constraints
     CONSTRAINT pk_roadloc_roadsrd_id PRIMARY KEY (roadsrd_id, locationsloc_id),
     CONSTRAINT fk_roadloc_roads_rd_id FOREIGN KEY (roadsrd_id) REFERENCES ROADS(rd_id),
@@ -762,107 +762,107 @@ VALUES
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0010',1,61);
+('CA0010',1,3.2);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0010',2,61);
+('CA0010',2,3.2);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0010',3,61);
+('CA0010',3,3.2);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0011',2,61);
+('CA0011',2,2.6);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0011',3,61);
+('CA0011',3,2.6);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0012',1,61);
+('CA0012',1,0.6);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0012',2,61);
+('CA0012',2,0.6);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0013',4,45);
+('CA0013',4,4);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0013',5,45);
+('CA0013',5,4);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0013',6,45);
+('CA0013',6,4);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0013',7,45);
+('CA0013',7,4);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0014',4,33);
+('CA0014',4,1);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0015',5,37);
+('CA0015',5,1);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0016',6,31);
+('CA0016',6,1);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0017',7,36);
+('CA0017',7,1);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0018',8,45);
+('CA0018',8,0.6);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0019',9,53);
+('CA0019',9,7.7);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0019',10,53);
+('CA0019',10,7.7);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0020',9,49);
+('CA0020',9,5.1);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0021',10,43);
+('CA0021',10,2.6);
 
 INSERT INTO ROADLOC
 (roadsrd_id, locationsloc_id, rd_est_length)
 VALUES
-('CA0022',11,48);
+('CA0022',11,2.8);
 
 
 
