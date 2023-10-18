@@ -48,7 +48,11 @@ AND UPPER(j.job_name) LIKE '%MANAGER';
 are longer than 2 kilometres and order them in ascending order by the road's name.
 It retrieves the following details (rd_id, rd_id, road_name,rd_est_length) */
 
-SELECT
+SELECT r.rd_id, o.rd_id, r.road_name, rl.rd_est_length
+FROM roads r, roads o, roadloc rl
+WHERE r.rd_id = o.rd_id
+AND r.rd_id = rl.roadsrd_id
+ORDER BY ASC r.road_name;
 
 --! Query 5:
 
