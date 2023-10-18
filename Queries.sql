@@ -79,9 +79,9 @@ regarding the actual and estimated costs on the contracts table. It retrieves th
 details (proj_name, cnt_est_cost, cnt_actual_cost)*/4
 
 SELECT
-    p.proj_name,
-    CONCAT('$',SUM(c.cnt_est_cost)) AS "Estimated Cost",
-    CONCAT('$',SUM(c.cnt_actual_cost)) AS "Actual Cost"
+    p.proj_name AS "Project Name",
+    LPAD(CONCAT('$',SUM(c.cnt_est_cost)),12,' ') AS "Estimated Cost",
+    LPAD(CONCAT('$',SUM(c.cnt_actual_cost)),10,' ') AS "Actual Cost"
 FROM projects p, contracts c
 WHERE c.projectsproj_code = p.proj_code
 GROUP BY p.proj_name;
