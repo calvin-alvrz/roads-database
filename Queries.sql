@@ -58,7 +58,9 @@ AND UPPER(j.job_name) LIKE '%MANAGER';
 --! Query 4:
 
 /*Purpose of the query is to create a report with the subsections of roads that
-are longer than 2 kilometres and order them in ascending order by the road's name. */
+are longer than 2 kilometres and order them in ascending order by the road's name.
+It retrives the following details (rd_id, roadsrd_id, rd_name, rd_est_length) */
+
 SELECT DISTINCT 
     r.rd_id AS "Road ID", 
     r.roadsrd_id AS "Subsection ID", 
@@ -73,4 +75,13 @@ ORDER BY r.rd_name, rl.rd_est_length;
 --! Query 5:
 
 /*Purpose of the query is to return a report that summarizes the total cost of a project
-regarding the actual and estimated costs on the contracts table. */
+regarding the actual and estimated costs on the contracts table. It retrieves the following
+details (proj_name, cnt_est_cost, cnt_actual_cost)*/4
+
+SELECT
+    p.proj_name,
+    CONCAT('$',SUM(c.cnt_est_cost)) AS "Estimated Cost",
+    CONCAT('$',SUM(c.cnt_actual_cost)) AS "Actual Cost"
+FROM projects p, contracts c
+WHERE c.projectsproj_code = p.proj_code
+GROUP BY p.proj_name;
