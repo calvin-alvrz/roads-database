@@ -59,7 +59,15 @@ AND UPPER(j.job_name) LIKE '%MANAGER';
 
 /*Purpose of the query is to create a report with the subsections of roads that
 are longer than 2 kilometres and order them in ascending order by the road's name. */
-
+SELECT DISTINCT 
+    r.rd_id AS "Road ID", 
+    r.roadsrd_id AS "Subsection ID", 
+    r.rd_name AS "Road Name", 
+    rl.rd_est_length AS "Road Estimated Length (km)"
+FROM roads r, roadloc rl
+WHERE r.rd_id = rl.roadsrd_id
+AND rl.rd_est_length >2
+ORDER BY r.rd_name, rl.rd_est_length;
 
 
 --! Query 5:
