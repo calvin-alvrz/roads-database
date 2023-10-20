@@ -42,6 +42,7 @@ cnt_end_date, and days in the position) */
 SELECT
     e.emp_first_name || ' ' || e.emp_last_name AS "Full Name",
     j.job_id AS "Job ID",
+    j.job_name AS "Job ID"
     c.cnt_number AS "Contract Number",
     c.cnt_name AS "Contract Name",
     c.cnt_start_date AS "Contract Start Date",
