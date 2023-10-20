@@ -82,7 +82,10 @@ details (proj_name, cnt_est_cost, cnt_actual_cost)*/4
 SELECT
     p.proj_name AS "Project Name",
     LPAD(CONCAT('$',SUM(c.cnt_est_cost)),12,' ') AS "Estimated Cost",
-    LPAD(CONCAT('$',SUM(c.cnt_actual_cost)),10,' ') AS "Actual Cost"
-FROM projects p, contracts c
+    LPAD(CONCAT('$',SUM(c.cnt_actual_cost)),10,' ') AS "Actual Cost",
+    pr.proj_status AS "Project Status"
+FROM projects p, contracts c, projroad pr
 WHERE c.projectsproj_code = p.proj_code
-GROUP BY p.proj_name;
+AND p.proj_code = pr.projectsproj_code
+AND pr.proj_status LIKE 'Finished'
+GROUP BY p.proj_name,pr.proj_status;
