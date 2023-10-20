@@ -955,27 +955,27 @@ VALUES
 INSERT INTO EMPJOBS
 (employeesemp_id, jobsjob_id, job_start_date, job_end_date)
 VALUES
-(1, 'Road Construction Manager', '15-07-2021', '12-10-2025');
+(1, 1, '15-07-2021', '12-10-2025');
 
 INSERT INTO EMPJOBS
 (employeesemp_id, jobsjob_id, job_start_date, job_end_date)
 VALUES
-(1, 'IT Support Technician', '15-07-2022', '06-05-2023');
+(1, 8, '15-07-2022', '06-05-2023');
 
 INSERT INTO EMPJOBS
 (employeesemp_id, jobsjob_id, job_start_date, job_end_date)
 VALUES
-(2, 'Road Construction Manager', '23-02-2022', '05-01-2026');
+(2, 9, '23-02-2022', '05-01-2026');
 
 INSERT INTO EMPJOBS
 (employeesemp_id, jobsjob_id, job_start_date, job_end_date)
 VALUES
-(3, 'Safety Inspector', '30-09-2017', '28-05-2024');
+(3, 6, '30-09-2017', '28-05-2024');
 
 INSERT INTO EMPJOBS
 (employeesemp_id, jobsjob_id, job_start_date, job_end_date)
 VALUES
-(3, 'Heavy Equipment Operator', '30-09-2017', '12-10-2025');
+(3, 3, '30-09-2017', '12-10-2025');
 
 -- Cntjobs Table
 
@@ -1008,4 +1008,3 @@ INSERT INTO CNTJOBS
 (jobsjob_id, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
 (6, 11, '16-08-2023', '20-09-2023');
-
