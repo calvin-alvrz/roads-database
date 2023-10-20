@@ -41,7 +41,7 @@ cnt_end_date, and days in the position) */
 
 SELECT
     e.emp_first_name || ' ' || e.emp_last_name AS "Full Name",
-    j.job_name AS "Job Title",
+    j.job_id AS "Job ID",
     c.cnt_number AS "Contract Number",
     c.cnt_name AS "Contract Name",
     c.cnt_start_date AS "Contract Start Date",
@@ -50,10 +50,10 @@ SELECT
     c.cnt_start_date), 0) AS "# Months in Position"
 FROM employees e, contracts c, jobs j, empjobs ej, cntjobs cj
 WHERE e.emp_id = ej.employeesemp_id
-AND j.job_name = ej.jobsjob_name
-AND j.job_name = cj.jobsjob_name
+AND j.job_id = ej.jobsjob_id
+AND j.job_id = cj.jobsjob_id
 AND c.cnt_number = cj.contractscnt_number
-AND UPPER(j.job_name) LIKE '%MANAGER';
+AND UPPER(j.job_id) LIKE '%MANAGER';
 
 --! Query 4:
 
