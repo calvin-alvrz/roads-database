@@ -15,7 +15,6 @@ drop table LOCATIONS cascade constraints;
 drop table CATEGORIES cascade constraints;
 drop table ROADS cascade constraints;
 
-
 --!! Created Tables
 
 CREATE TABLE CATEGORIES (
@@ -432,36 +431,40 @@ VALUES (20, 'Jose', 'Laserna', '02-02-2022', '20-11-2001', 'M', '11 Howe Street'
 -- Jobs Table
 
 INSERT INTO JOBS
-(job_name, job_description)
-VALUES ('Road Construction Manager', 'Oversees all aspects of road construction projects.');
+(job_id, job_name, job_description)
+VALUES (1, 'Road Construction Manager', 'Oversees all aspects of road construction projects.');
 
 INSERT INTO JOBS 
-(job_name, job_description)
-VALUES ('Civil Engineer', null);
+(job_id, job_name, job_description)
+VALUES (2, 'Civil Engineer', null);
 
 INSERT INTO JOBS 
-(job_name, job_description)
-VALUES ('Heavy Equipment Operator', null);
+(job_id, job_name, job_description)
+VALUES (3, 'Heavy Equipment Operator', null);
 
 INSERT INTO JOBS 
-(job_name, job_description)
-VALUES ('Surveyor', 'Measures and maps out road construction sites.');
+(job_id, job_name, job_description)
+VALUES (4, 'Surveyor', 'Measures and maps out road construction sites.');
 
 INSERT INTO JOBS 
-(job_name, job_description)
-VALUES ('Traffic Control Officer', null);
+(job_id, job_name, job_description)
+VALUES (5, 'Traffic Control Officer', null);
 
 INSERT INTO JOBS
-(job_name, job_description)
-VALUES ('Safety Inspector', 'Monitors safety practices at the construction site.');
+(job_id, job_name, job_description)
+VALUES (6, 'Safety Inspector', 'Monitors safety practices at the construction site.');
 
 INSERT INTO JOBS
-(job_name, job_description)
-VALUES ('Finance Consultant', 'Advises project budgeting and financial management.');
+(job_id, job_name, job_description)
+VALUES (7, 'Finance Consultant', 'Advises project budgeting and financial management.');
 
 INSERT INTO JOBS
-(job_name, job_description)
-VALUES ('IT Support Technician', null);
+(job_id, job_name, job_description)
+VALUES (8, 'IT Support Technician', null);
+
+INSERT INTO JOBS
+(job_id, job_name, job_description)
+VALUES (9, 'Road Construction Manager', 'Oversees all aspects of road construction projects.');
 
 -- Contractors Table
 
@@ -950,59 +953,59 @@ VALUES
 -- Empjobs Table
 
 INSERT INTO EMPJOBS
-(employeesemp_id, jobsjob_name, job_start_date, job_end_date)
+(employeesemp_id, jobsjob_id, job_start_date, job_end_date)
 VALUES
 (1, 'Road Construction Manager', '15-07-2021', '12-10-2025');
 
 INSERT INTO EMPJOBS
-(employeesemp_id, jobsjob_name, job_start_date, job_end_date)
+(employeesemp_id, jobsjob_id, job_start_date, job_end_date)
 VALUES
 (1, 'IT Support Technician', '15-07-2022', '06-05-2023');
 
 INSERT INTO EMPJOBS
-(employeesemp_id, jobsjob_name, job_start_date, job_end_date)
+(employeesemp_id, jobsjob_id, job_start_date, job_end_date)
 VALUES
 (2, 'Road Construction Manager', '23-02-2022', '05-01-2026');
 
 INSERT INTO EMPJOBS
-(employeesemp_id, jobsjob_name, job_start_date, job_end_date)
+(employeesemp_id, jobsjob_id, job_start_date, job_end_date)
 VALUES
 (3, 'Safety Inspector', '30-09-2017', '28-05-2024');
 
 INSERT INTO EMPJOBS
-(employeesemp_id, jobsjob_name, job_start_date, job_end_date)
+(employeesemp_id, jobsjob_id, job_start_date, job_end_date)
 VALUES
 (3, 'Heavy Equipment Operator', '30-09-2017', '12-10-2025');
 
 -- Cntjobs Table
 
 INSERT INTO CNTJOBS
-(jobsjob_name, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
+(jobsjob_id, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
-('Road Construction Manager', 1,'26-08-2023', '01-09-2023');
+(1, 1,'26-08-2023', '01-09-2023');
 
 INSERT INTO CNTJOBS
-(jobsjob_name, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
+(jobsjob_id, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
-('Road Construction Manager', 1,'26-08-2023', '01-09-2023');
+(9, 1,'01-09-2023', '20-09-2023');
 
 INSERT INTO CNTJOBS
-(jobsjob_name, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
+(jobsjob_id, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
-('Road Construction Manager', 4, '16-05-2023', '15-08-2023');
+(1, 4, '16-05-2023', '15-08-2023');
 
 INSERT INTO CNTJOBS
-(jobsjob_name, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
+(jobsjob_id, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
-('Road Construction Manager', 9, '01-09-2023','30-09-2023');
+(9, 9, '01-09-2023','30-09-2023');
 
 INSERT INTO CNTJOBS
-(jobsjob_name, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
+(jobsjob_id, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
-('Civil Engineer', 7, '31-12-2023', '09-11-2024');
+(2, 7, '31-12-2023', '09-11-2024');
 
 INSERT INTO CNTJOBS
-(jobsjob_name, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
+(jobsjob_id, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
-('Safety Inspector', 11, '16-08-2023', '20-09-2023');
+(6, 11, '16-08-2023', '20-09-2023');
 
