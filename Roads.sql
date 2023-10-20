@@ -63,7 +63,8 @@ CREATE TABLE EMPLOYEES (
 
 CREATE TABLE JOBS (
     -- Attributes
-    job_name                VARCHAR2(25) PRIMARY KEY,
+    job_id                  NUMBER PRIMARY KEY,
+    job_name                VARCHAR2(25) NOT NULL,
     job_description         VARCHAR2(60)
 );
 
@@ -156,24 +157,24 @@ CREATE TABLE EMPPROJ (
 CREATE TABLE EMPJOBS (
     -- Attributes
     employeesemp_id         NUMBER, 
-    jobsjob_name            VARCHAR2(25), 
+    jobsjob_id              NUMBER, 
     job_start_date          DATE NOT NULL,
     job_end_date            DATE NOT NULL,
     -- Constraints
-    CONSTRAINT pk_empjobs_employeesemp_id PRIMARY KEY (employeesemp_id, jobsjob_name),
+    CONSTRAINT pk_empjobs_employeesemp_id PRIMARY KEY (employeesemp_id, jobsjob_id),
     CONSTRAINT fk_empjobs_employees_emp_id FOREIGN KEY (employeesemp_id) REFERENCES EMPLOYEES(emp_id),
-    CONSTRAINT fk_empjobs_jobs_job_name FOREIGN KEY (jobsjob_name) REFERENCES JOBS(job_name)
+    CONSTRAINT fk_empjobs_jobs_job_id FOREIGN KEY (jobsjob_id) REFERENCES JOBS(job_id)
 );
 
 CREATE TABLE CNTJOBS (
     -- Attributes
-    jobsjob_name            VARCHAR(25),
+    jobsjob_id              NUMBER,
     contractscnt_number     NUMBER, 
     jobs_mgmt_start_date    DATE,
     jobs_mgmt_end_date      DATE,
     -- Constraints
-    CONSTRAINT pk_cntjobs_jobsjob_name PRIMARY KEY (jobsjob_name, contractscnt_number),
-    CONSTRAINT fk_cntjobs_jobs_job_name FOREIGN KEY (jobsjob_name) REFERENCES JOBS(job_name),
+    CONSTRAINT pk_cntjobs_jobsjob_id PRIMARY KEY (jobsjob_id, contractscnt_number),
+    CONSTRAINT fk_cntjobs_jobs_job_id FOREIGN KEY (jobsjob_id) REFERENCES JOBS(job_id),
     CONSTRAINT fk_cntjobs_contracts_cnt_number FOREIGN KEY (contractscnt_number) REFERENCES CONTRACTS(cnt_number)
 );
 
