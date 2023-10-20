@@ -53,7 +53,7 @@ WHERE e.emp_id = ej.employeesemp_id
 AND j.job_id = ej.jobsjob_id
 AND j.job_id = cj.jobsjob_id
 AND c.cnt_number = cj.contractscnt_number
-AND UPPER(j.job_id) LIKE '%MANAGER';
+AND UPPER(j.job_name) LIKE '%MANAGER';
 
 --! Query 4:
 
