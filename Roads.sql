@@ -987,7 +987,7 @@ VALUES
 INSERT INTO CNTJOBS
 (jobsjob_id, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
 VALUES
-(9, 1,'01-09-2023', '20-09-2023');
+(9, 1,'01-09-2023', '05-09-2023');
 
 INSERT INTO CNTJOBS
 (jobsjob_id, contractscnt_number, jobs_mgmt_start_date, jobs_mgmt_end_date)
