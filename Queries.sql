@@ -42,7 +42,7 @@ cnt_end_date, and days in the position) */
 SELECT
     e.emp_first_name || ' ' || e.emp_last_name AS "Full Name",
     j.job_id AS "Job ID",
-    j.job_name AS "Job ID"
+    j.job_name AS "Job ID",
     c.cnt_number AS "Contract Number",
     c.cnt_name AS "Contract Name",
     c.cnt_start_date AS "Contract Start Date",
@@ -77,7 +77,7 @@ ORDER BY r.rd_name, rl.rd_est_length;
 
 /*Purpose of the query is to return a report that summarizes the total cost of a project
 regarding the actual and estimated costs on the contracts table. It retrieves the following
-details (proj_name, cnt_est_cost, cnt_actual_cost)*/4
+details (proj_name, cnt_est_cost, cnt_actual_cost)*/
 
 SELECT
     p.proj_name AS "Project Name",
