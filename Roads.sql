@@ -117,7 +117,7 @@ CREATE TABLE ROADCAT (
     -- Constraints
     CONSTRAINT pk_roadcat_roadsrd_id PRIMARY KEY (roadsrd_id, categoriescat_id),
     CONSTRAINT fk_roadcat_roads_rd_id FOREIGN KEY (roadsrd_id) REFERENCES ROADS(rd_id),
-    CONSTRAINT fk_roadcat_categories_rd_id FOREIGN KEY (categoriescat_id) REFERENCES CATEGORIES(cat_id)
+    CONSTRAINT fk_roadcat_categories_cat_id FOREIGN KEY (categoriescat_id) REFERENCES CATEGORIES(cat_id)
 );
 
 CREATE TABLE ROADLOC (
